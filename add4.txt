@@ -60,11 +60,11 @@ Adder4bit uut (
 initial begin
      $display("Time\tA\tB\tCin\tSum\tCout");
 // Apply test inputs 
-    A = 4'b0001; B = 4'b0010; Cin = 0; #10; // Test case 1 
-    A = 4'b0101; B = 4'b0011; Cin = 0; #10; // Test case 2 
-    A = 4'b1111; B = 4'b1111; Cin = 0; #10; // Test case 3 
-    A = 4'b1010; B = 4'b0101; Cin = 1; #10; // Test case 4 
-    A = 4'b0000; B = 4'b0000; Cin = 1; #10; // Test case 5 // End simulation
+    A = 4'b0001; B = 4'b0010; Cin = 0; #10; 
+    A = 4'b0101; B = 4'b0011; Cin = 0; #10; 
+    A = 4'b1111; B = 4'b1111; Cin = 0; #10; 
+    A = 4'b1010; B = 4'b0101; Cin = 1; #10; 
+    A = 4'b0000; B = 4'b0000; Cin = 1; #10; 
     $finish; 
   end
 endmodule
