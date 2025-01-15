@@ -1,18 +1,18 @@
 module encoder_8to3 (
-    input [7:0] D,       // 8-bit input
-    output reg [2:0] Y   // 3-bit encoded output
+    input [7:0] D,       
+    output reg [2:0] Y   
 );
     always @(*) begin
         casez (D)
-            8'b10000000: Y = 3'b111; // Highest priority D[7]
-            8'b01000000: Y = 3'b110; // D[6]
-            8'b00100000: Y = 3'b101; // D[5]
-            8'b00010000: Y = 3'b100; // D[4]
-            8'b00001000: Y = 3'b011; // D[3]
-            8'b00000100: Y = 3'b010; // D[2]
-            8'b00000010: Y = 3'b001; // D[1]
-            8'b00000001: Y = 3'b000; // Lowest priority D[0]
-            default:      Y = 3'b000; // Default case if all inputs are 0
+            8'b10000000: Y = 3'b111; 
+            8'b01000000: Y = 3'b110; 
+            8'b00100000: Y = 3'b101; 
+            8'b00010000: Y = 3'b100; 
+            8'b00001000: Y = 3'b011; 
+            8'b00000100: Y = 3'b010; 
+            8'b00000010: Y = 3'b001; 
+            8'b00000001: Y = 3'b000; 
+            default:      Y = 3'b000; 
         endcase
     end
 endmodule
@@ -21,10 +21,10 @@ endmodule
 `timescale 1ns / 1ps
 
 module tb_encoder_8to3;
-    reg [7:0] D;       // 8-bit input
-    wire [2:0] Y;      // 3-bit encoded output
+    reg [7:0] D;      
+    wire [2:0] Y;      
 
-    // Instantiate the 8:3 Encoder
+   
     encoder_8to3 uut (
         .D(D),
         .Y(Y)
@@ -32,16 +32,16 @@ module tb_encoder_8to3;
 
     initial begin
         $display("Time\tD\t\tY");
-        // Apply test vectors
-        D = 8'b00000001; #10; // Input 0
-        D = 8'b00000010; #10; // Input 1
-        D = 8'b00000100; #10; // Input 2
-        D = 8'b00001000; #10; // Input 3
-        D = 8'b00010000; #10; // Input 4
-        D = 8'b00100000; #10; // Input 5
-        D = 8'b01000000; #10; // Input 6
-        D = 8'b10000000; #10; // Input 7
-        D = 8'b00001100; #10; // Multiple inputs active
+        
+        D = 8'b00000001; #10; 
+        D = 8'b00000010; #10;
+        D = 8'b00000100; #10; 
+        D = 8'b00001000; #10;
+        D = 8'b00010000; #10; 
+        D = 8'b00100000; #10; 
+        D = 8'b01000000; #10; 
+        D = 8'b10000000; #10; 
+        D = 8'b00001100; #10; 
         $finish;
     end
 endmodule
